@@ -1,0 +1,121 @@
+/* LuxeClean - Dark Mode Theme Overrides */
+
+html.dark {
+  --color-bg-light: #0B132B;
+  --color-card-light: rgba(28, 37, 65, 0.85);
+  --color-text-main: #F8FAFC;
+  --color-text-muted: #94A3B8;
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: #0B132B;
+  color: #F8FAFC;
+}
+
+html.dark .glass-nav {
+  background: rgba(11, 19, 43, 0.92);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+html.dark .glass-card {
+  background: rgba(28, 37, 65, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+html.dark .glass-card:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  border-color: rgba(59, 130, 246, 0.4);
+}
+
+html.dark .bg-white:not(button):not(a):not(.btn-cta-light):not(.keep-white) {
+  background-color: #1C2541 !important;
+}
+
+/* High-Contrast Vibrant CTA Buttons for Dark Mode */
+html.dark button.bg-white,
+html.dark a.bg-white {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  font-weight: 800 !important;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.35) !important;
+}
+
+html.dark button.bg-white:hover,
+html.dark a.bg-white:hover {
+  background-color: #E0F2FE !important;
+  color: #0284C7 !important;
+  box-shadow: 0 0 35px rgba(56, 189, 248, 0.6) !important;
+  transform: translateY(-2px);
+}
+
+html.dark .bg-accent-gradient {
+  background: linear-gradient(135deg, #3B82F6 0%, #06B6D4 100%) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 20px rgba(6, 182, 212, 0.45) !important;
+}
+
+html.dark .bg-accent-gradient:hover {
+  background: linear-gradient(135deg, #2563EB 0%, #0891B2 100%) !important;
+  box-shadow: 0 6px 30px rgba(56, 189, 248, 0.65) !important;
+  transform: translateY(-2px);
+}
+
+html.dark .bg-slate-50, 
+html.dark .bg-gray-50 {
+  background-color: #0F172A !important;
+}
+
+html.dark .bg-slate-100, 
+html.dark .bg-gray-100 {
+  background-color: #1E293B !important;
+}
+
+html.dark .text-slate-900,
+html.dark .text-gray-900,
+html.dark .text-slate-800 {
+  color: #F8FAFC !important;
+}
+
+html.dark .text-slate-600,
+html.dark .text-gray-600,
+html.dark .text-slate-700 {
+  color: #CBD5E1 !important;
+}
+
+html.dark .text-slate-500,
+html.dark .text-gray-500 {
+  color: #94A3B8 !important;
+}
+
+html.dark .border-slate-200,
+html.dark .border-gray-200,
+html.dark .border-slate-100 {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+html.dark input, 
+html.dark select, 
+html.dark textarea {
+  background-color: #0F172A !important;
+  color: #F8FAFC !important;
+  border-color: #334155 !important;
+}
+
+html.dark input::placeholder, 
+html.dark textarea::placeholder {
+  color: #64748B !important;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #0B132B;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}

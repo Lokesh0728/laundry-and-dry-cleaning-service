@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Dashboard | LuxeClean — Premium Garment Care</title>
+  <meta name="description" content="LuxeClean Customer Dashboard. Manage active orders, track garments through cleaning stages, schedule pickups, download invoices, and manage saved addresses.">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#0f172a',
+            },
+            tealAccent: '#0d9488',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg">
+
+  <!-- Custom CSS Files -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/dark-mode.css">
+  <link rel="stylesheet" href="../assets/css/rtl.css">
+</head>
+<body class="bg-slate-100 text-slate-800 dark:bg-[#070D1E] dark:text-slate-100 min-h-screen flex flex-col lg:flex-row transition-colors duration-300">
+
+  <!-- Mobile Top Bar with Drawer Toggle -->
+  <div class="lg:hidden sticky top-0 z-50 bg-slate-900 text-white p-3.5 sm:p-4 flex items-center justify-between shadow-md">
+    <!-- Brand Logo (Matching Login Page Style) -->
+    <a href="../index.html" class="flex items-center space-x-2.5 shrink-0 group" title="LuxeClean Home">
+      <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L5.6 15.17a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+      </div>
+      <div class="text-left">
+        <span class="text-lg font-extrabold tracking-tight text-white font-heading whitespace-nowrap">Luxe<span class="text-blue-400">Clean</span></span>
+        <span class="block text-[9px] font-bold tracking-wider text-slate-400">“Care Beyond Clean.”</span>
+      </div>
+    </a>
+
+    <div class="flex items-center space-x-2">
+      <!-- Sticky Mobile Dark Mode Toggle Button -->
+      <button class="theme-toggle-btn p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-100 border border-slate-700 transition flex items-center justify-center shrink-0" title="Toggle Theme" aria-label="Toggle Theme">
+        <svg class="icon-moon w-5 h-5 text-indigo-400 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        <svg class="icon-sun w-5 h-5 text-amber-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+      </button>
+      <button id="dashboard-sidebar-open" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition flex items-center justify-center">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- PERSISTENT SIDEBAR NAVIGATION -->
+  <aside id="dashboard-sidebar" class="fixed inset-y-0 left-0 z-50 w-72 bg-slate-950 text-slate-300 flex flex-col justify-between transform -translate-x-full lg:translate-x-0 lg:static transition-transform duration-300 border-r border-slate-800 shadow-2xl">
+    
+    <div class="p-6 space-y-6 overflow-y-auto max-h-screen">
+      <!-- Sidebar Brand Header (Exact Same Logo as Login Page) -->
+      <div class="flex items-center justify-between pb-6 border-b border-slate-800">
+        <a href="../index.html" class="flex items-center space-x-3 shrink-0 group" title="LuxeClean Home">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L5.6 15.17a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+          </div>
+          <div class="text-left">
+            <span class="text-2xl font-extrabold tracking-tight text-white font-heading whitespace-nowrap">Luxe<span class="text-blue-400">Clean</span></span>
+            <span class="block text-[10px] font-bold tracking-wider text-slate-400">“Care Beyond Clean.”</span>
+          </div>
+        </a>
+        <button id="dashboard-sidebar-close" class="lg:hidden text-slate-400 hover:text-white p-1">✕</button>
+      </div>
+
+      <!-- Recommended Sidebar Navigation Order -->
+      <nav class="space-y-1 text-xs font-semibold">
+        <a href="#overview" onclick="switchDashboardTab('overview')" id="tab-nav-overview" class="tab-nav-item active flex items-center space-x-3 px-4 py-3 rounded-xl bg-blue-600 text-white font-bold shadow-md">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="#book-pickup" onclick="switchDashboardTab('book-pickup')" id="tab-nav-book-pickup" class="tab-nav-item flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-slate-900 hover:text-white transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+          <span>Book a Pickup</span>
+        </a>
+
+        <a href="#my-orders" onclick="switchDashboardTab('my-orders')" id="tab-nav-my-orders" class="tab-nav-item flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-slate-900 hover:text-white transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+          <span>My Orders</span>
+        </a>
+
+        <a href="#track-order" onclick="switchDashboardTab('track-order')" id="tab-nav-track-order" class="tab-nav-item flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-slate-900 hover:text-white transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path></svg>
+          <span>Track Order</span>
+          <span class="ml-auto w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+        </a>
+
+        <a href="#services-tab" onclick="switchDashboardTab('services-tab')" id="tab-nav-services-tab" class="tab-nav-item flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-slate-900 hover:text-white transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L5.6 15.17a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+          <span>Services</span>
+        </a>
+
+        <a href="#billing" onclick="switchDashboardTab('billing')" id="tab-nav-billing" class="tab-nav-item flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-slate-900 hover:text-white transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z"></path></svg>
+          <span>Billing & Invoices</span>
+        </a>
+
+        <a href="#addresses" onclick="switchDashboardTab('addresses')" id="tab-nav-addresses" class="tab-nav-item flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-slate-900 hover:text-white transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+          <span>Saved Addresses</span>
+        </a>
+
+        <a href="#notifications-tab" onclick="switchDashboardTab('notifications-tab')" id="tab-nav-notifications-tab" class="tab-nav-item flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-slate-900 hover:text-white transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+          <span>Notifications</span>
+          <span class="ml-auto px-1.5 py-0.5 rounded-full text-[10px] bg-blue-500 text-white font-bold">4</span>
+        </a>
+
+        <div class="pt-4 border-t border-slate-800/80 my-2"></div>
+
+        <a href="#profile-settings" onclick="switchDashboardTab('profile-settings')" id="tab-nav-profile-settings" class="tab-nav-item flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-slate-900 hover:text-white transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path></svg>
+          <span>Profile & Settings</span>
+        </a>
+
+        <a href="#help-support" onclick="switchDashboardTab('help-support')" id="tab-nav-help-support" class="tab-nav-item flex items-center space-x-3 px-4 py-3 rounded-xl hover:bg-slate-900 hover:text-white transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <span>Help & Support</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Sidebar Footer -->
+    <div class="p-6 border-t border-slate-800/80 space-y-4 text-xs">
+      <div class="p-3.5 rounded-2xl bg-slate-900 border border-slate-800 text-slate-300 space-y-1">
+        <span class="font-bold text-white block">Need Help?</span>
+        <span class="text-[11px] text-slate-400 block">Customer Care: <strong>+1 (800) 589-3253</strong></span>
+        <span class="text-[10px] text-slate-500 block">Mon – Sat · 7:00 AM – 9:00 PM</span>
+        <button onclick="switchDashboardTab('help-support')" class="mt-2 text-blue-400 font-bold hover:underline block text-[11px]">Contact Support →</button>
+      </div>
+
+      <button onclick="triggerLogoutModal()" class="w-full flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-red-950/60 hover:text-red-400 text-slate-400 transition font-bold">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+        <span>Logout</span>
+      </button>
+    </div>
+
+  </aside>
+
+  <!-- MAIN DASHBOARD CONTENT AREA -->
+  <main class="flex-1 flex flex-col min-w-0 min-h-screen">
+    
+    <!-- TOP HEADER -->
+    <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 p-6 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 sticky top-0 z-40">
+      <div>
+        <h1 class="text-2xl font-extrabold text-slate-900 dark:text-white font-heading">
+          Good Morning, Alex. 👋
+        </h1>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+          Let's take care of the laundry. Keep track of your garments, manage pickups, and enjoy a completely effortless experience.
+        </p>
+      </div>
+
+      <div class="flex items-center space-x-2 sm:space-x-3 w-full md:w-auto justify-end flex-wrap gap-y-2">
+        <!-- Quick Search -->
+        <div class="relative hidden sm:block">
+          <input type="text" placeholder="Search orders, invoices..." class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white text-xs outline-none focus:ring-2 focus:ring-blue-500 w-48">
+        </div>
+
+        <!-- Desktop Theme Toggle Button (Hidden on mobile to avoid duplicate with mobile bar) -->
+        <button class="theme-toggle-btn hidden lg:flex p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 border border-slate-300 dark:border-slate-700 transition items-center justify-center shadow-sm shrink-0" title="Toggle Theme" aria-label="Toggle Theme">
+          <svg class="icon-moon w-5 h-5 text-indigo-500 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+          <svg class="icon-sun w-5 h-5 text-amber-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+        </button>
+
+        <!-- RTL Button -->
+        <button class="rtl-toggle-btn px-2.5 py-1.5 rounded-xl bg-blue-50 dark:bg-blue-950/60 hover:bg-blue-100 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 transition flex items-center space-x-1 text-xs font-semibold" title="Toggle RTL">
+          <span>🌐</span>
+          <span class="rtl-label text-xs">RTL</span>
+        </button>
+
+        <!-- Notifications -->
+        <button onclick="switchDashboardTab('notifications-tab')" class="relative p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200" title="Notifications">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+          <span class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-blue-600 text-white font-bold text-[9px] flex items-center justify-center">4</span>
+        </button>
+
+        <!-- Profile Icon Button -->
+        <button onclick="switchDashboardTab('profile-settings')" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition flex items-center justify-center" title="Profile Settings">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+        </button>
+
+        <!-- Book a Pickup Button -->
+        <button onclick="switchDashboardTab('book-pickup')" class="px-4 py-2 rounded-xl bg-accent-gradient text-white font-bold text-xs shadow-md hover:scale-105 transition transform shrink-0">
+          Book a Pickup →
+        </button>
+      </div>
+    </header>
+
+    <!-- DASHBOARD TAB CONTENT WRAPPER -->
+    <div class="p-6 lg:p-8 flex-1 space-y-8">
+      
+      <!-- TAB 1: OVERVIEW MAIN DASHBOARD VIEW -->
+      <div id="tab-content-overview" class="dashboard-tab-content space-y-8">
+        
+        <!-- 01. QUICK STATS -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm space-y-2">
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Active Order</span>
+            <div class="flex items-baseline justify-between">
+              <span class="text-2xl font-extrabold text-blue-600 dark:text-blue-400 font-heading">#LX-8942</span>
+              <span class="px-2 py-0.5 rounded-md bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 text-[10px] font-bold">8 Garments</span>
+            </div>
+            <span class="text-[11px] text-slate-500 dark:text-slate-400 block italic">Currently in Care</span>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm space-y-2">
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Next Pickup</span>
+            <div>
+              <span class="text-base font-extrabold text-slate-900 dark:text-white font-heading block">Saturday, 22 Aug</span>
+              <span class="text-[11px] text-slate-500 dark:text-slate-400">09:00 AM – 12:00 PM</span>
+            </div>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm space-y-2">
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">This Month</span>
+            <span class="text-3xl font-extrabold text-emerald-600 dark:text-emerald-400 font-heading block">24 Garments</span>
+            <span class="text-[11px] text-slate-500 dark:text-slate-400 block">Across 8 Orders</span>
+          </div>
+
+          <div class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm space-y-2">
+            <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">Total Spent</span>
+            <span class="text-3xl font-extrabold text-slate-900 dark:text-white font-heading block">₹3,840</span>
+            <span class="text-[11px] text-teal-600 dark:text-teal-400 block font-bold">Your Care, Clearly Accounted For</span>
+          </div>
+
+        </div>
+
+        <!-- 02. ACTIVE ORDER CARD (Section 02) -->
+        <div class="p-8 rounded-3xl bg-slate-900 text-white shadow-2xl border border-slate-800 space-y-6">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center pb-4 border-b border-slate-800 gap-2">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-widest text-cyan-400">02 • Active Order</span>
+              <h3 class="text-2xl font-extrabold font-heading">Order #LX-8942</h3>
+              <p class="text-xs text-slate-300">8 Garments · Premium Care Service</p>
+            </div>
+            <div class="text-left sm:text-right text-xs">
+              <span class="block text-slate-400">Pickup: <strong>Today · 9:15 AM</strong></span>
+              <span class="block text-emerald-400 font-bold">Estimated Delivery: <strong>Tomorrow · 5:00 PM</strong></span>
+            </div>
+          </div>
+
+          <!-- Progress Stepper -->
+          <div class="space-y-3">
+            <div class="flex justify-between items-center text-xs font-bold pb-1">
+              <span class="text-cyan-300">Current Stage: Cleaning in Progress</span>
+              <span class="text-slate-400">Estimated completion: Today, 4:30 PM</span>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 text-center text-xs">
+              <div class="p-3 rounded-xl bg-emerald-950/80 border border-emerald-700 text-emerald-300">
+                ✓ Collected
+              </div>
+              <div class="p-3 rounded-xl bg-emerald-950/80 border border-emerald-700 text-emerald-300">
+                ✓ Inspection
+              </div>
+              <div class="p-3 rounded-xl bg-blue-600 text-white font-bold animate-pulse shadow-lg">
+                ● Cleaning
+              </div>
+              <div class="p-3 rounded-xl bg-slate-800 text-slate-400 opacity-60">
+                ○ Quality Check
+              </div>
+              <div class="p-3 rounded-xl bg-slate-800 text-slate-400 opacity-60 col-span-2 sm:col-span-1">
+                ○ Out for Delivery
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-end pt-2">
+            <button onclick="switchDashboardTab('track-order')" class="px-6 py-2.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-extrabold text-xs shadow-md transition">
+              Track Full Order →
+            </button>
+          </div>
+        </div>
+
+        <!-- 03. YOUR GARMENTS TABLE (Section 03) -->
+        <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-6">
+          <div class="flex justify-between items-center">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">03 • Itemized Breakdown</span>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white font-heading">What's Being Cared For (#LX-8942)</h3>
+            </div>
+            <button onclick="switchDashboardTab('track-order')" class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">View All Garments →</button>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="bg-slate-100 dark:bg-slate-700/50 text-slate-900 dark:text-white font-heading uppercase text-[10px] tracking-wider">
+                <tr>
+                  <th class="p-3.5">Garment</th>
+                  <th class="p-3.5">Service</th>
+                  <th class="p-3.5">Status</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-slate-100 dark:divide-slate-700 text-slate-700 dark:text-slate-300">
+                <tr>
+                  <td class="p-3.5 font-bold text-slate-900 dark:text-white">Formal Shirt</td>
+                  <td class="p-3.5">Dry Cleaning</td>
+                  <td class="p-3.5"><span class="px-2 py-1 rounded bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-bold">Cleaning</span></td>
+                </tr>
+                <tr>
+                  <td class="p-3.5 font-bold text-slate-900 dark:text-white">Trousers</td>
+                  <td class="p-3.5">Dry Cleaning</td>
+                  <td class="p-3.5"><span class="px-2 py-1 rounded bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-bold">Cleaning</span></td>
+                </tr>
+                <tr>
+                  <td class="p-3.5 font-bold text-slate-900 dark:text-white">Silk Saree</td>
+                  <td class="p-3.5">Premium Fabric Care</td>
+                  <td class="p-3.5"><span class="px-2 py-1 rounded bg-teal-100 dark:bg-teal-950 text-teal-700 dark:text-teal-300 font-bold">Inspection</span></td>
+                </tr>
+                <tr>
+                  <td class="p-3.5 font-bold text-slate-900 dark:text-white">T-Shirt × 3</td>
+                  <td class="p-3.5">Wash & Fold</td>
+                  <td class="p-3.5"><span class="px-2 py-1 rounded bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 font-bold">Processing</span></td>
+                </tr>
+                <tr>
+                  <td class="p-3.5 font-bold text-slate-900 dark:text-white">Towels × 2</td>
+                  <td class="p-3.5">Wash & Fold</td>
+                  <td class="p-3.5"><span class="px-2 py-1 rounded bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300 font-bold">Processing</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 04. QUICK BOOKING CARD & 05. UPCOMING PICKUP -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          
+          <!-- 04. Quick Booking Card -->
+          <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-5">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">04 • Quick Booking</span>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white font-heading mt-1">Need Another Pickup?</h3>
+              <p class="text-xs text-slate-500 dark:text-slate-400">Schedule your next laundry collection in just a few clicks.</p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3 text-xs">
+              <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-700">
+                <h4 class="font-bold text-slate-900 dark:text-white">Wash & Fold</h4>
+                <p class="text-[10px] text-slate-500 dark:text-slate-400">Everyday laundry</p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-700">
+                <h4 class="font-bold text-slate-900 dark:text-white">Dry Cleaning</h4>
+                <p class="text-[10px] text-slate-500 dark:text-slate-400">Formal & delicate</p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-700">
+                <h4 class="font-bold text-slate-900 dark:text-white">Steam Press</h4>
+                <p class="text-[10px] text-slate-500 dark:text-slate-400">Crisp & wrinkle-free</p>
+              </div>
+              <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-700">
+                <h4 class="font-bold text-slate-900 dark:text-white">Premium Care</h4>
+                <p class="text-[10px] text-slate-500 dark:text-slate-400">Specialized fabric</p>
+              </div>
+            </div>
+
+            <button onclick="switchDashboardTab('book-pickup')" class="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md transition">
+              Schedule a Pickup →
+            </button>
+          </div>
+
+          <!-- 05. Upcoming Pickup Card -->
+          <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-5 flex flex-col justify-between">
+            <div class="space-y-3">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">05 • Scheduled Pickup</span>
+                <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">Confirmed</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white font-heading">Saturday, 22 August</h3>
+              <p class="text-xs font-bold text-blue-600 dark:text-blue-400">09:00 AM – 12:00 PM</p>
+              
+              <div class="text-xs space-y-1 text-slate-600 dark:text-slate-300 pt-2 border-t border-slate-100 dark:border-slate-700">
+                <p>📍 <strong>Pickup Address:</strong> 42 Oak Avenue, Apartment 4B</p>
+                <p>🧺 <strong>Services:</strong> Wash & Fold · Dry Cleaning</p>
+                <p>📦 <strong>Estimated Items:</strong> 10 Garments</p>
+              </div>
+            </div>
+
+            <div class="flex gap-3 pt-2">
+              <button onclick="alert('Pickup details: Saturday 22 Aug, 9-12 AM at 42 Oak Avenue')" class="flex-1 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-white font-bold text-xs">
+                View Details
+              </button>
+              <button onclick="alert('Reschedule request initiated.')" class="flex-1 py-2.5 rounded-xl bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-300 font-bold text-xs">
+                Reschedule
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 06. RECENT ORDERS TABLE (Section 06) -->
+        <div class="bg-white dark:bg-slate-800 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-6">
+          <div class="flex justify-between items-center">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">06 • Laundry History</span>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white font-heading">Recent Orders</h3>
+            </div>
+            <button onclick="switchDashboardTab('my-orders')" class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">View All Orders →</button>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-700 space-y-2 text-xs">
+              <div class="flex justify-between font-bold">
+                <span class="text-blue-600 dark:text-blue-400">#LX-8916</span>
+                <span class="text-emerald-600 dark:text-emerald-400">Completed</span>
+              </div>
+              <p class="text-slate-500 dark:text-slate-400">12 Garments · 18 Aug 2026</p>
+              <span class="font-extrabold text-slate-900 dark:text-white block">₹1,480</span>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-700 space-y-2 text-xs">
+              <div class="flex justify-between font-bold">
+                <span class="text-blue-600 dark:text-blue-400">#LX-8872</span>
+                <span class="text-emerald-600 dark:text-emerald-400">Completed</span>
+              </div>
+              <p class="text-slate-500 dark:text-slate-400">7 Garments · 12 Aug 2026</p>
+              <span class="font-extrabold text-slate-900 dark:text-white block">₹920</span>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-700/50 border border-slate-200 dark:border-slate-700 space-y-2 text-xs">
+              <div class="flex justify-between font-bold">
+                <span class="text-blue-600 dark:text-blue-400">#LX-8819</span>
+                <span class="text-emerald-600 dark:text-emerald-400">Completed</span>
+              </div>
+              <p class="text-slate-500 dark:text-slate-400">15 Garments · 05 Aug 2026</p>
+              <span class="font-extrabold text-slate-900 dark:text-white block">₹2,140</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 10. MEMBERSHIP / LOYALTY CARD (Section 10) -->
+        <div class="p-8 rounded-3xl bg-gradient-to-r from-blue-900 to-slate-900 text-white shadow-xl border border-blue-800/60 flex flex-col md:flex-row justify-between items-center gap-6">
+          <div class="space-y-3">
+            <span class="px-3 py-1 rounded-full text-[10px] font-bold bg-cyan-400/20 text-cyan-300 uppercase tracking-wider">10 • LuxeClean Member</span>
+            <h3 class="text-2xl font-extrabold font-heading">Premium Care Member</h3>
+            <p class="text-xs text-slate-300">You have completed 8 orders this month. <strong>2 more orders</strong> to unlock your next member reward benefit!</p>
+
+            <div class="flex flex-wrap gap-3 text-xs font-bold text-cyan-200 pt-1">
+              <span>✓ Priority pickup slots</span>
+              <span>✓ Exclusive pricing</span>
+              <span>✓ Special offers</span>
+            </div>
+          </div>
+
+          <button onclick="switchDashboardTab('profile-settings')" class="px-8 py-3 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-extrabold text-xs shadow-lg whitespace-nowrap">
+            View Membership →
+          </button>
+        </div>
+
+      </div>
+
+      <!-- TAB 2: BOOK A PICKUP WIZARD VIEW -->
+      <div id="tab-content-book-pickup" class="dashboard-tab-content space-y-8 hidden">
+        <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md space-y-6">
+          <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white font-heading">Schedule Your Garment Pickup</h2>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Schedule a new collection by choosing your services, date, time slot, and pickup address.</p>
+          <a href="login.html#pickup-wizard-section" class="inline-block px-8 py-3 rounded-xl bg-blue-600 text-white font-bold text-xs shadow-md">Open Pickup Booking Wizard →</a>
+        </div>
+      </div>
+
+      <!-- TAB 3: MY ORDERS VIEW (Section 15) -->
+      <div id="tab-content-my-orders" class="dashboard-tab-content space-y-6 hidden">
+        <div class="flex justify-between items-center">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">15 • Every Order, One Place</span>
+            <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white font-heading">My Orders</h2>
+          </div>
+          <div class="flex space-x-2 text-xs font-bold">
+            <button class="px-3 py-1.5 rounded-lg bg-blue-600 text-white">All</button>
+            <button class="px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200">Active</button>
+            <button class="px-3 py-1.5 rounded-lg bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200">Completed</button>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Active Order Card -->
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border-2 border-blue-500 shadow-md space-y-4">
+            <div class="flex justify-between items-center">
+              <div>
+                <span class="font-extrabold text-base text-blue-600 dark:text-blue-400 font-mono">#LX-8942</span>
+                <span class="text-xs text-slate-400 block">Pickup: Today, 9:15 AM · 8 Garments</span>
+              </div>
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300">Cleaning in Progress</span>
+            </div>
+            <div class="flex justify-between items-center pt-2 text-xs font-bold border-t border-slate-100 dark:border-slate-700">
+              <span class="text-slate-900 dark:text-white">Total: ₹1,240</span>
+              <div class="flex space-x-2">
+                <button onclick="switchDashboardTab('track-order')" class="px-4 py-1.5 rounded-lg bg-blue-600 text-white">Track Order</button>
+                <button onclick="alert('Downloading Invoice INV-8942...')" class="px-4 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200">Invoice</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Completed Order Card -->
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm space-y-4">
+            <div class="flex justify-between items-center">
+              <div>
+                <span class="font-extrabold text-base text-slate-900 dark:text-white font-mono">#LX-8916</span>
+                <span class="text-xs text-slate-400 block">Delivered 18 Aug 2026 · 12 Garments</span>
+              </div>
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">Completed</span>
+            </div>
+            <div class="flex justify-between items-center pt-2 text-xs font-bold border-t border-slate-100 dark:border-slate-700">
+              <span class="text-slate-900 dark:text-white">Total: ₹1,480</span>
+              <div class="flex space-x-2">
+                <button onclick="alert('Reordering last order #LX-8916 with 1-click...')" class="px-4 py-1.5 rounded-lg bg-emerald-600 text-white">Book Again →</button>
+                <button onclick="alert('Downloading Invoice INV-8916...')" class="px-4 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200">Download Invoice</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: TRACK ORDER VIEW (Section 14) -->
+      <div id="tab-content-track-order" class="dashboard-tab-content space-y-6 hidden">
+        <div class="p-8 rounded-3xl bg-slate-900 text-white border border-slate-800 shadow-2xl space-y-6">
+          <span class="text-xs font-bold uppercase tracking-widest text-cyan-400">14 • Order Tracking Page</span>
+          <h2 class="text-3xl font-extrabold font-heading">Track Your Garments (#LX-8942)</h2>
+          <p class="text-xs text-slate-300">8 Garments · Premium Care Service</p>
+
+          <div class="space-y-4 border-l-2 border-cyan-500 pl-6 text-xs">
+            <div class="space-y-1">
+              <span class="text-emerald-400 font-bold">✓ Order Confirmed</span>
+              <p class="text-slate-400 text-[11px]">21 Aug · 8:42 AM</p>
+            </div>
+            <div class="space-y-1">
+              <span class="text-emerald-400 font-bold">✓ Collected</span>
+              <p class="text-slate-400 text-[11px]">21 Aug · 9:15 AM</p>
+            </div>
+            <div class="space-y-1">
+              <span class="text-emerald-400 font-bold">✓ Inspection & Sorting</span>
+              <p class="text-slate-400 text-[11px]">21 Aug · 10:10 AM</p>
+            </div>
+            <div class="space-y-1 bg-blue-900/40 p-3 rounded-xl border border-blue-500">
+              <span class="text-cyan-300 font-extrabold text-sm block">● Cleaning in Progress</span>
+              <p class="text-slate-300 text-xs">Our care team is following the selected treatment for each garment.</p>
+            </div>
+            <div class="space-y-1 opacity-60">
+              <span class="text-slate-400 font-bold">○ Quality Check (Coming next)</span>
+            </div>
+            <div class="space-y-1 opacity-60">
+              <span class="text-slate-400 font-bold">○ Out for Delivery (Expected tomorrow)</span>
+            </div>
+            <div class="space-y-1 opacity-60">
+              <span class="text-slate-400 font-bold">○ Delivered (Estimated tomorrow · 5:00 PM)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 5: SERVICES VIEW -->
+      <div id="tab-content-services-tab" class="dashboard-tab-content space-y-6 hidden">
+        <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md space-y-4">
+          <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white font-heading">Explore LuxeClean Services</h2>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Discover full garment care options from Wash & Fold to Delicate Dry Cleaning.</p>
+          <a href="services.html" class="inline-block px-8 py-3 rounded-xl bg-blue-600 text-white font-bold text-xs shadow-md">View Full Services Catalog →</a>
+        </div>
+      </div>
+
+      <!-- TAB 6: BILLING & INVOICES VIEW (Section 07 & 16) -->
+      <div id="tab-content-billing" class="dashboard-tab-content space-y-6 hidden">
+        <div class="flex justify-between items-center">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">16 • Billing Page</span>
+            <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white font-heading">Billing & Invoices</h2>
+            <p class="text-xs text-slate-500 dark:text-slate-400">A complete record of everything you've paid for.</p>
+          </div>
+          <div class="flex space-x-4 text-xs font-bold">
+            <span class="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">Total Orders: <strong>48</strong></span>
+            <span class="p-3 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">Total Spent: <strong>₹24,680</strong></span>
+          </div>
+        </div>
+
+        <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-sm">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-100 dark:bg-slate-700/50 text-slate-900 dark:text-white font-heading uppercase text-[10px]">
+              <tr>
+                <th class="p-4">Invoice</th>
+                <th class="p-4">Order ID</th>
+                <th class="p-4">Date</th>
+                <th class="p-4">Amount</th>
+                <th class="p-4">Status</th>
+                <th class="p-4 text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 dark:divide-slate-700 text-slate-700 dark:text-slate-300">
+              <tr>
+                <td class="p-4 font-bold">INV-8942</td>
+                <td class="p-4 text-blue-600 font-mono">#LX-8942</td>
+                <td class="p-4">21 Aug 2026</td>
+                <td class="p-4 font-bold">₹1,240</td>
+                <td class="p-4"><span class="px-2 py-0.5 rounded bg-amber-100 text-amber-700 font-bold">Pending</span></td>
+                <td class="p-4 text-right"><button onclick="alert('Downloading PDF for INV-8942...')" class="px-3 py-1 rounded bg-blue-600 text-white font-bold">Download PDF</button></td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold">INV-8916</td>
+                <td class="p-4 text-blue-600 font-mono">#LX-8916</td>
+                <td class="p-4">18 Aug 2026</td>
+                <td class="p-4 font-bold">₹1,480</td>
+                <td class="p-4"><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-700 font-bold">Paid</span></td>
+                <td class="p-4 text-right"><button onclick="alert('Downloading PDF for INV-8916...')" class="px-3 py-1 rounded bg-blue-600 text-white font-bold">Download PDF</button></td>
+              </tr>
+              <tr>
+                <td class="p-4 font-bold">INV-8872</td>
+                <td class="p-4 text-blue-600 font-mono">#LX-8872</td>
+                <td class="p-4">12 Aug 2026</td>
+                <td class="p-4 font-bold">₹920</td>
+                <td class="p-4"><span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-700 font-bold">Paid</span></td>
+                <td class="p-4 text-right"><button onclick="alert('Downloading PDF for INV-8872...')" class="px-3 py-1 rounded bg-blue-600 text-white font-bold">Download PDF</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 7: SAVED ADDRESSES VIEW (Section 08) -->
+      <div id="tab-content-addresses" class="dashboard-tab-content space-y-6 hidden">
+        <div class="flex justify-between items-center">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">08 • Pickup Locations</span>
+            <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white font-heading">Saved Addresses</h2>
+          </div>
+          <button onclick="alert('Add address form opened.')" class="px-4 py-2 rounded-xl bg-blue-600 text-white font-bold text-xs">+ Add New Address</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border-2 border-blue-500 shadow-sm space-y-2 text-xs">
+            <span class="px-2.5 py-1 rounded-full bg-blue-100 text-blue-700 font-bold">Default Home</span>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading pt-1">Home Address</h3>
+            <p class="text-slate-600 dark:text-slate-300">42 Oak Avenue, Apartment 4B, Downtown Central District (10001)</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm space-y-2 text-xs">
+            <span class="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold">Work Office</span>
+            <h3 class="text-base font-bold text-slate-900 dark:text-white font-heading pt-1">Office Address</h3>
+            <p class="text-slate-600 dark:text-slate-300">18 Central Business Park, Floor 3, Tech Hub (10008)</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 8: NOTIFICATIONS VIEW (Section 09) -->
+      <div id="tab-content-notifications-tab" class="dashboard-tab-content space-y-6 hidden">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">09 • Activity Log</span>
+          <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white font-heading">Notifications</h2>
+        </div>
+
+        <div class="space-y-3 text-xs">
+          <div class="p-4 rounded-2xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 font-semibold text-blue-900 dark:text-blue-200">
+            🔔 <strong>Pickup Reminder:</strong> Your pickup for Order #LX-8942 is scheduled for today.
+          </div>
+          <div class="p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            🧼 <strong>Cleaning Update:</strong> Your premium garments have entered the cleaning stage.
+          </div>
+          <div class="p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            📦 <strong>Delivery Update:</strong> Order #LX-8916 was delivered successfully.
+          </div>
+          <div class="p-4 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+            📄 <strong>Invoice Available:</strong> Invoice INV-8916 is ready to download.
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 9: PROFILE & SETTINGS VIEW (Section 11 & 17) -->
+      <div id="tab-content-profile-settings" class="dashboard-tab-content space-y-6 hidden">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">17 • Profile Settings</span>
+          <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white font-heading">Account Preferences & Profile</h2>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md space-y-6 max-w-2xl text-xs">
+          <div class="space-y-3">
+            <h3 class="font-bold text-sm text-slate-900 dark:text-white font-heading">Personal Information</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-slate-400 mb-1">Name</label>
+                <input type="text" value="Alex Morgan" class="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold">
+              </div>
+              <div>
+                <label class="block text-slate-400 mb-1">Email</label>
+                <input type="email" value="alex@example.com" class="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold">
+              </div>
+              <div>
+                <label class="block text-slate-400 mb-1">Phone</label>
+                <input type="text" value="+1 987 654 3210" class="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold">
+              </div>
+              <div>
+                <label class="block text-slate-400 mb-1">Preferred Slot</label>
+                <input type="text" value="09:00 AM – 12:00 PM" class="w-full p-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-bold">
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t border-slate-200 dark:border-slate-700">
+            <button onclick="alert('Profile settings saved successfully!')" class="px-8 py-3 rounded-xl bg-blue-600 text-white font-bold text-xs shadow-md">
+              Save Changes
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 10: HELP & SUPPORT VIEW (Section 12) -->
+      <div id="tab-content-help-support" class="dashboard-tab-content space-y-6 hidden">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">12 • Support Card</span>
+          <h2 class="text-2xl font-extrabold text-slate-900 dark:text-white font-heading">Need Help With Your Order?</h2>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-md space-y-4 max-w-xl text-xs">
+          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+            Our customer-care team is ready to assist with pickup scheduling, garment concerns, invoices, and delivery questions.
+          </p>
+          <div class="p-4 rounded-2xl bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800">
+            <h4 class="font-bold text-blue-900 dark:text-blue-300 text-sm font-heading">Direct Hotline</h4>
+            <p class="text-base font-extrabold text-blue-600 dark:text-blue-400 mt-1">+1 (800) 589-3253</p>
+            <p class="text-[10px] text-slate-500">Mon – Sat · 7:00 AM – 9:00 PM</p>
+          </div>
+          <button onclick="alert('Initiating live support chat...')" class="w-full py-3 rounded-xl bg-blue-600 text-white font-bold shadow-md">
+            Contact Support →
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- LOGOUT CONFIRMATION MODAL -->
+  <div id="logout-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 rounded-3xl max-w-md w-full space-y-6 text-center shadow-2xl">
+      <div class="w-14 h-14 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-600 flex items-center justify-center mx-auto text-2xl font-bold">
+        👋
+      </div>
+      <div class="space-y-2">
+        <h3 class="text-2xl font-bold text-slate-900 dark:text-white font-heading">Leaving Already?</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400">
+          Leaving already? Your garments will still be in good hands.
+        </p>
+      </div>
+      <div class="flex space-x-3 pt-2">
+        <button onclick="closeLogoutModal()" class="flex-1 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-bold text-xs">
+          Cancel
+        </button>
+        <a href="../index.html" class="flex-1 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md inline-block">
+          Logout Now
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/dashboard.js"></script>
+</body>
+</html>
