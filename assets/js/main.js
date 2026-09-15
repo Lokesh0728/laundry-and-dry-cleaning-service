@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPostalChecker();
   initOrderTracker();
   initFaqAccordion();
+  initFaqViewMore();
 });
 
 /* ==========================================
@@ -373,23 +374,73 @@ function initFaqAccordion() {
   const faqItems = document.querySelectorAll('.faq-item');
 
   faqItems.forEach(item => {
-    const btn = item.querySelector('.faq-btn');
-    const content = item.querySelector('.faq-content');
-    const icon = item.querySelector('.faq-icon');
+    item.addEventListener('click', (e) => {
+      const answer = item.querySelector('.faq-answer') || item.querySelector('.faq-content');
+      const icon = item.querySelector('.faq-icon');
 
-    if (btn && content) {
-      btn.addEventListener('click', () => {
-        const isOpen = !content.classList.contains('hidden');
+      if (!answer) return;
 
-        // Close all other faqs
-        document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
-        document.querySelectorAll('.faq-icon').forEach(i => i.classList.remove('rotate-180'));
+      const isCurrentlyHidden = answer.classList.contains('hidden');
 
-        if (!isOpen) {
-          content.classList.remove('hidden');
-          if (icon) icon.classList.add('rotate-180');
+      // Close all other faqs in the same container
+      const parentContainer = item.parentElement;
+      if (parentContainer) {
+        parentContainer.querySelectorAll('.faq-item').forEach(sibling => {
+          const siblingAnswer = sibling.querySelector('.faq-answer') || sibling.querySelector('.faq-content');
+          const siblingIcon = sibling.querySelector('.faq-icon');
+          if (siblingAnswer && sibling !== item) {
+            siblingAnswer.classList.add('hidden');
+          }
+          if (siblingIcon && sibling !== item) {
+            siblingIcon.textContent = '+';
+            siblingIcon.classList.remove('rotate-180');
+          }
+        });
+      }
+
+      // Toggle current FAQ
+      if (isCurrentlyHidden) {
+        answer.classList.remove('hidden');
+        if (icon) {
+          icon.textContent = '−';
+          icon.classList.add('rotate-180');
         }
-      });
-    }
+      } else {
+        answer.classList.add('hidden');
+        if (icon) {
+          icon.textContent = '+';
+          icon.classList.remove('rotate-180');
+        }
+      }
+    });
   });
 }
+
+/* ==========================================
+   8. FAQ View More / View Less Toggle
+   ========================================== */
+function initFaqViewMore() {
+  const viewMoreBtn = document.getElementById('faq-view-more-btn');
+  const moreContainer = document.getElementById('faq-more-container');
+
+  if (viewMoreBtn && moreContainer) {
+    viewMoreBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const isHidden = moreContainer.classList.contains('hidden');
+      if (isHidden) {
+        moreContainer.classList.remove('hidden');
+        viewMoreBtn.innerHTML = `
+          <span>View Fewer Questions</span>
+          <svg class="w-4 h-4 rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        `;
+      } else {
+        moreContainer.classList.add('hidden');
+        viewMoreBtn.innerHTML = `
+          <span>View More Questions</span>
+          <svg class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        `;
+      }
+    });
+  }
+}
+

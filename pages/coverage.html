@@ -42,16 +42,23 @@
 
   <!-- Header Navigation -->
   <header class="header-nav sticky top-0 z-50 glass-nav transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
       
       <!-- Brand Logo (Matching Login Page Style) -->
       <a href="../index.html" class="flex items-center space-x-3 shrink-0 group" title="LuxeClean Home">
-        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L5.6 15.17a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <rect x="3" y="2.5" width="18" height="19" rx="4" stroke-width="2"></rect>
+            <circle cx="12" cy="13" r="4.5" stroke-width="2"></circle>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.5 13c1-.9 2-.9 3 0s2 .9 3 0"></path>
+            <circle cx="7" cy="6.5" r="1" fill="currentColor"></circle>
+            <circle cx="10" cy="6.5" r="1" fill="currentColor"></circle>
+            <line x1="14.5" y1="6.5" x2="17.5" y2="6.5" stroke-width="2" stroke-linecap="round"></line>
+          </svg>
         </div>
         <div class="text-left">
-          <span class="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white font-heading whitespace-nowrap">Luxe<span class="text-blue-600 dark:text-blue-400">Clean</span></span>
-          <span class="block text-[10px] font-bold tracking-wider text-slate-500 dark:text-slate-400">“Care Beyond Clean.”</span>
+          <span class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white font-heading whitespace-nowrap">Luxe<span class="text-blue-600 dark:text-blue-400">Clean</span></span>
+          <span class="block text-[10px] font-medium tracking-wider text-slate-500 dark:text-slate-400">“Care Beyond Clean.”</span>
         </div>
       </a>
       <!-- Desktop Nav Menu (Shown on xl: 1280px+) -->
@@ -76,37 +83,34 @@
         <a href="services.html" class="nav-link hover:text-blue-600 dark:hover:text-blue-400 transition whitespace-nowrap">Services</a>
         <a href="pricing.html" class="nav-link hover:text-blue-600 dark:hover:text-blue-400 transition whitespace-nowrap">View Pricing</a>
         <a href="how-it-works.html" class="nav-link hover:text-blue-600 dark:hover:text-blue-400 transition whitespace-nowrap">How It Works</a>
-        <a href="coverage.html" class="nav-link active font-bold text-blue-600 dark:text-blue-400 py-2 whitespace-nowrap">Coverage Area</a>
+        <a href="coverage.html" class="nav-link active font-semibold text-blue-600 dark:text-blue-400 py-2 whitespace-nowrap">Coverage Area</a>
         <a href="dashboard.html" class="nav-link hover:text-blue-600 dark:hover:text-blue-400 transition whitespace-nowrap">Dashboard</a>
       </nav>
 
       <!-- Desktop CTA Actions (Shown on xl: 1280px+) -->
       <div class="hidden xl:flex items-center space-x-3 shrink-0 whitespace-nowrap">
         <!-- Dark Mode Toggle Button -->
-        <button class="theme-toggle-btn p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 border border-slate-300 dark:border-slate-700 transition flex items-center justify-center shadow-sm shrink-0" title="Toggle Theme" aria-label="Toggle Theme">
+        <button class="theme-toggle-btn h-10 w-10 p-0 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 border border-slate-300 dark:border-slate-700 transition flex items-center justify-center shadow-sm shrink-0" title="Toggle Theme" aria-label="Toggle Theme">
           <svg class="icon-moon w-5 h-5 text-indigo-500 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
           <svg class="icon-sun w-5 h-5 text-amber-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
         </button>
         
-        <!-- RTL Toggle Button -->
-        <button class="rtl-toggle-btn px-2.5 py-1.5 rounded-xl bg-blue-50 dark:bg-blue-950/60 hover:bg-blue-100 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 transition flex items-center space-x-1 text-xs font-semibold whitespace-nowrap" title="Toggle RTL">
-          <span>🌐</span>
+        <!-- RTL Toggle Button with Proper RTL SVG Icon -->
+        <button class="rtl-toggle-btn h-10 px-3.5 rounded-xl bg-blue-50 dark:bg-blue-950/60 hover:bg-blue-100 dark:hover:bg-blue-900/60 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 transition flex items-center space-x-2 text-xs font-semibold whitespace-nowrap shrink-0" title="Toggle RTL">
+          <svg class="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 6H5m14 6H9m10 6H5M9 9l-3 3 3 3"></path>
+          </svg>
           <span class="rtl-label text-xs">RTL</span>
         </button>
 
-        <!-- Login Link -->
-        <a href="login.html" class="text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 whitespace-nowrap">
+        <!-- Static Login CTA Button (Uniform height h-10) -->
+        <a href="login.html" class="h-10 px-5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-md shadow-blue-500/20 transition flex items-center justify-center whitespace-nowrap shrink-0">
           Login
-        </a>
-
-        <!-- Book a Pickup CTA -->
-        <a href="dashboard.html#book-pickup" class="px-5 py-2.5 rounded-xl bg-accent-gradient text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition transform active:scale-95 whitespace-nowrap">
-          Book a Pickup
         </a>
       </div>
 
       <!-- Hamburger Menu Button (Shown on screens < 1280px) -->
-      <button id="mobile-menu-btn" class="xl:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition flex items-center justify-center">
+      <button id="mobile-menu-btn" class="xl:hidden h-10 w-10 p-0 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition flex items-center justify-center">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
       </button>
     </div>
@@ -116,14 +120,24 @@
   <div id="mobile-menu" class="fixed inset-0 z-50 bg-slate-900/90 backdrop-blur-md hidden flex flex-col justify-between p-6">
     <div>
       <div class="flex items-center justify-between pb-6 border-b border-slate-800">
-        <a href="../index.html" class="flex items-center space-x-2 shrink-0">
-          <span class="text-xl font-bold text-white whitespace-nowrap">Luxe<span class="text-blue-400">Clean</span></span>
+        <a href="../index.html" class="flex items-center space-x-3 shrink-0">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white shadow-md">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <rect x="3" y="2.5" width="18" height="19" rx="4" stroke-width="2"></rect>
+              <circle cx="12" cy="13" r="4.5" stroke-width="2"></circle>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.5 13c1-.9 2-.9 3 0s2 .9 3 0"></path>
+              <circle cx="7" cy="6.5" r="1" fill="currentColor"></circle>
+              <circle cx="10" cy="6.5" r="1" fill="currentColor"></circle>
+              <line x1="14.5" y1="6.5" x2="17.5" y2="6.5" stroke-width="2" stroke-linecap="round"></line>
+            </svg>
+          </div>
+          <span class="text-xl font-semibold text-white whitespace-nowrap">Luxe<span class="text-blue-400">Clean</span></span>
         </a>
         <button id="mobile-menu-close" class="text-slate-400 hover:text-white p-2">✕</button>
       </div>
       <nav class="flex flex-col space-y-3 mt-6 text-base font-medium text-slate-200">
         <div class="space-y-1 pb-2 border-b border-slate-800">
-          <span class="text-xs uppercase font-bold text-blue-400 tracking-wider">Home Options</span>
+          <span class="text-xs uppercase font-semibold text-blue-400 tracking-wider">Home Options</span>
           <a href="../index.html" class="block pl-3 text-slate-300 hover:text-white text-sm">Home One — Modern</a>
           <a href="index2.html" class="block pl-3 text-slate-300 hover:text-white text-sm">Home Two — Classic</a>
         </div>
@@ -131,9 +145,9 @@
         <a href="services.html">Services</a>
         <a href="pricing.html">View Pricing</a>
         <a href="how-it-works.html">How It Works</a>
-        <a href="coverage.html" class="font-bold text-blue-400">Coverage Area</a>
-        <a href="dashboard.html" class="font-bold text-cyan-400">Dashboard</a>
-        <a href="login.html" class="font-bold text-blue-400">Login</a>
+        <a href="coverage.html" class="font-semibold text-blue-400">Coverage Area</a>
+        <a href="dashboard.html" class="font-semibold text-cyan-400">Dashboard</a>
+        <a href="login.html" class="font-semibold text-blue-400">Login</a>
       </nav>
     </div>
 
@@ -143,12 +157,14 @@
           <svg class="icon-moon w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
           <svg class="icon-sun w-5 h-5 text-amber-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
         </button>
-        <button class="rtl-toggle-btn px-4 py-2 rounded-xl bg-blue-900/60 text-blue-200 text-xs font-bold flex items-center space-x-2">
-          <span>🌐</span>
+        <button class="rtl-toggle-btn px-4 py-2 rounded-xl bg-blue-900/60 text-blue-200 text-xs font-semibold flex items-center space-x-2">
+          <svg class="w-4 h-4 text-blue-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 6H5m14 6H9m10 6H5M9 9l-3 3 3 3"></path>
+          </svg>
           <span class="rtl-label">RTL</span>
         </button>
       </div>
-      <a href="login.html" class="w-full inline-block text-center py-3 rounded-xl bg-blue-600 text-white font-bold shadow-lg">Book a Pickup</a>
+      <a href="dashboard.html#book-pickup" class="w-full inline-block text-center py-3 rounded-xl bg-blue-600 text-white font-semibold shadow-lg">Book a Pickup</a>
     </div>
   </div>
 
@@ -173,10 +189,10 @@
       </p>
 
       <div class="flex flex-wrap justify-center gap-4 pt-2">
-        <a href="#coverage-search-section" class="px-8 py-3.5 rounded-xl bg-accent-gradient text-white font-bold text-sm shadow-xl shadow-blue-500/30 hover:shadow-blue-500/50 transition">
+        <a href="#coverage-search-section" class="px-8 py-3.5 rounded-xl bg-accent-gradient text-white font-semibold text-sm shadow-xl shadow-blue-500/30 hover:shadow-blue-500/50 transition">
           Check My Area →
         </a>
-        <a href="login.html" class="px-8 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-sm border border-slate-700 transition">
+        <a href="dashboard.html#book-pickup" class="px-8 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-sm border border-slate-700 transition">
           Schedule a Pickup →
         </a>
       </div>
@@ -512,9 +528,9 @@
       </div>
 
       <div class="p-8 rounded-3xl bg-slate-900 text-white border border-slate-800 text-center space-y-4 min-w-[280px]">
-        <h4 class="font-bold text-lg font-heading">Commercial Accounts</h4>
+        <h4 class="font-semibold text-lg font-heading">Commercial Accounts</h4>
         <p class="text-xs text-slate-400">Custom billing & dedicated pickup schedules.</p>
-        <a href="login.html" class="inline-block w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md transition">
+        <a href="pricing.html" class="inline-block w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs shadow-md transition">
           Business Enquiry →
         </a>
       </div>
@@ -637,10 +653,10 @@
       </p>
 
       <div class="flex flex-wrap justify-center gap-4 pt-2">
-        <a href="#coverage-search-section" class="px-8 py-3.5 rounded-xl bg-white text-blue-900 font-extrabold text-sm shadow-2xl hover:bg-slate-100 transition transform hover:scale-105">
+        <a href="#coverage-search-section" class="px-8 py-3.5 rounded-xl bg-white text-blue-900 font-semibold text-sm shadow-2xl hover:bg-slate-100 transition transform hover:scale-105">
           Check Coverage →
         </a>
-        <a href="login.html" class="px-8 py-3.5 rounded-xl bg-blue-900/60 hover:bg-blue-900 text-white font-extrabold text-sm border border-blue-400/40 transition">
+        <a href="dashboard.html#book-pickup" class="px-8 py-3.5 rounded-xl bg-blue-900/60 hover:bg-blue-900 text-white font-semibold text-sm border border-blue-400/40 transition">
           Book a Pickup →
         </a>
       </div>
@@ -657,12 +673,19 @@
       
       <div class="space-y-4">
         <a href="../index.html" class="flex items-center space-x-3 shrink-0 group">
-          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L5.6 15.17a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <rect x="3" y="2.5" width="18" height="19" rx="4" stroke-width="2"></rect>
+              <circle cx="12" cy="13" r="4.5" stroke-width="2"></circle>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.5 13c1-.9 2-.9 3 0s2 .9 3 0"></path>
+              <circle cx="7" cy="6.5" r="1" fill="currentColor"></circle>
+              <circle cx="10" cy="6.5" r="1" fill="currentColor"></circle>
+              <line x1="14.5" y1="6.5" x2="17.5" y2="6.5" stroke-width="2" stroke-linecap="round"></line>
+            </svg>
           </div>
           <div class="text-left">
-            <span class="text-2xl font-extrabold text-white font-heading whitespace-nowrap">Luxe<span class="text-blue-500">Clean</span></span>
-            <span class="block text-[10px] font-bold tracking-wider text-slate-400">“Care Beyond Clean.”</span>
+            <span class="text-2xl font-semibold text-white font-heading whitespace-nowrap">Luxe<span class="text-blue-500">Clean</span></span>
+            <span class="block text-[10px] font-medium tracking-wider text-slate-400">“Care Beyond Clean.”</span>
           </div>
         </a>
         <p class="text-xs text-slate-400 leading-relaxed">
@@ -712,10 +735,29 @@
         </ul>
       </div>
 
+      <!-- Col 4: Contact & Support (Replaces Login button) -->
       <div class="space-y-3">
-        <h4 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Customer Portal</h4>
-        <p class="text-xs text-slate-400">Track active orders, schedule pickups, and download past invoices.</p>
-        <a href="login.html" class="inline-block w-full text-center py-2.5 rounded-lg bg-blue-600 text-white font-semibold text-xs hover:bg-blue-700 transition">Login</a>
+        <h4 class="text-sm font-semibold uppercase tracking-wider text-white mb-4">Contact & Support</h4>
+        <div class="space-y-2.5 text-xs text-slate-400">
+          <p class="flex items-center space-x-2">
+            <svg class="w-4 h-4 text-blue-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            <span class="text-slate-200 font-medium">+1 (800) 589-3253</span>
+          </p>
+          <p class="flex items-center space-x-2">
+            <svg class="w-4 h-4 text-cyan-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            <span class="text-slate-300">care@luxeclean.com</span>
+          </p>
+          <p class="flex items-start space-x-2 pt-1">
+            <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            <span>104 Garment District, Suite 400<br><span class="text-slate-500 text-[11px]">Mon–Sat: 7AM–9PM · Sun: 9AM–6PM</span></span>
+          </p>
+        </div>
+        <div class="pt-2">
+          <a href="how-it-works.html#faq-section" class="inline-flex items-center space-x-1.5 text-xs text-blue-400 hover:text-blue-300 font-semibold transition">
+            <span>Frequently Asked Questions</span>
+            <span>→</span>
+          </a>
+        </div>
       </div>
 
     </div>

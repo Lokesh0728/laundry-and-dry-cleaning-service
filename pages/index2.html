@@ -42,16 +42,23 @@
 
   <!-- Header Navigation -->
   <header class="header-nav sticky top-0 z-50 glass-nav transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
       
-      <!-- Brand Logo (Matching Login Page Style) -->
+      <!-- Brand Logo (Washer Drum) -->
       <a href="../index.html" class="flex items-center space-x-3 shrink-0 group" title="LuxeClean Home">
-        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L5.6 15.17a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <rect x="3" y="2.5" width="18" height="19" rx="4" stroke-width="2"></rect>
+            <circle cx="12" cy="13" r="4.5" stroke-width="2"></circle>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.5 13c1-.9 2-.9 3 0s2 .9 3 0"></path>
+            <circle cx="7" cy="6.5" r="1" fill="currentColor"></circle>
+            <circle cx="10" cy="6.5" r="1" fill="currentColor"></circle>
+            <line x1="14.5" y1="6.5" x2="17.5" y2="6.5" stroke-width="2" stroke-linecap="round"></line>
+          </svg>
         </div>
         <div class="text-left">
-          <span class="text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white font-heading whitespace-nowrap">Luxe<span class="text-blue-600 dark:text-blue-400">Clean</span></span>
-          <span class="block text-[10px] font-bold tracking-wider text-slate-500 dark:text-slate-400">“Care Beyond Clean.”</span>
+          <span class="text-2xl font-semibold tracking-tight text-slate-900 dark:text-white font-heading whitespace-nowrap">Luxe<span class="text-blue-600 dark:text-blue-400">Clean</span></span>
+          <span class="block text-[10px] font-medium tracking-wider text-slate-500 dark:text-slate-400">“Care Beyond Clean.”</span>
         </div>
       </a>
 
@@ -59,7 +66,7 @@
       <nav class="hidden xl:flex items-center space-x-6 font-semibold text-sm text-slate-700 dark:text-slate-200 whitespace-nowrap">
         <!-- Home Dropdown (Active Page) -->
         <div class="relative group">
-          <button class="nav-link active flex items-center space-x-1 font-bold text-blue-600 dark:text-blue-400 py-2 whitespace-nowrap">
+          <button class="nav-link active flex items-center space-x-1 font-semibold text-blue-600 dark:text-blue-400 py-2 whitespace-nowrap">
             <span>Home</span>
             <svg class="w-4 h-4 text-blue-500 group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
           </button>
@@ -67,7 +74,7 @@
             <a href="../index.html" class="block px-3 py-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-slate-800 dark:text-slate-200 transition">
               <span>Home One — Modern</span>
             </a>
-            <a href="index2.html" class="block px-3 py-2.5 rounded-xl bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300 font-bold">
+            <a href="index2.html" class="block px-3 py-2.5 rounded-xl bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300 font-semibold">
               <span>Home Two — Classic</span>
             </a>
           </div>
@@ -84,25 +91,22 @@
       <!-- Desktop CTA Actions (Shown on xl: 1280px+) -->
       <div class="hidden xl:flex items-center space-x-3 shrink-0 whitespace-nowrap">
         <!-- Dark Mode Toggle Button -->
-        <button class="theme-toggle-btn p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 border border-slate-300 dark:border-slate-700 transition flex items-center justify-center shadow-sm shrink-0" title="Toggle Theme" aria-label="Toggle Theme">
+        <button class="theme-toggle-btn h-10 w-10 p-0 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 border border-slate-300 dark:border-slate-700 transition flex items-center justify-center shadow-sm shrink-0" title="Toggle Theme" aria-label="Toggle Theme">
           <svg class="icon-moon w-5 h-5 text-indigo-500 dark:text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
           <svg class="icon-sun w-5 h-5 text-amber-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
         </button>
         
-        <!-- RTL Toggle Button -->
-        <button class="rtl-toggle-btn px-2.5 py-1.5 rounded-xl bg-blue-50 dark:bg-blue-950/60 hover:bg-blue-100 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 transition flex items-center space-x-1 text-xs font-semibold whitespace-nowrap" title="Toggle RTL">
-          <span>🌐</span>
+        <!-- RTL Toggle Button with Vector Icon -->
+        <button class="rtl-toggle-btn h-10 px-3.5 rounded-xl bg-blue-50 dark:bg-blue-950/60 hover:bg-blue-100 dark:hover:bg-blue-900/50 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800 transition flex items-center space-x-2 text-xs font-semibold whitespace-nowrap" title="Toggle RTL">
+          <svg class="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 6H5m14 6H9m10 6H5M9 9l-3 3 3 3"></path>
+          </svg>
           <span class="rtl-label text-xs">RTL</span>
         </button>
 
-        <!-- Login Link -->
-        <a href="login.html" class="text-sm font-bold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 px-3 py-2 whitespace-nowrap">
+        <!-- Static Login CTA Button -->
+        <a href="login.html" class="h-10 px-5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-md shadow-blue-500/20 transition flex items-center justify-center whitespace-nowrap">
           Login
-        </a>
-
-        <!-- Book a Pickup CTA -->
-        <a href="dashboard.html#book-pickup" class="px-5 py-2.5 rounded-xl bg-accent-gradient text-white font-semibold text-sm shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition transform active:scale-95 whitespace-nowrap">
-          Book a Pickup
         </a>
       </div>
 
@@ -118,39 +122,48 @@
     <div>
       <div class="flex items-center justify-between pb-6 border-b border-slate-800">
         <a href="../index.html" class="flex items-center space-x-2 shrink-0">
-          <span class="text-xl font-bold text-white whitespace-nowrap">Luxe<span class="text-blue-400">Clean</span></span>
+          <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <rect x="3" y="2.5" width="18" height="19" rx="4" stroke-width="2"></rect>
+              <circle cx="12" cy="13" r="4.5" stroke-width="2"></circle>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.5 13c1-.9 2-.9 3 0s2 .9 3 0"></path>
+            </svg>
+          </div>
+          <span class="text-xl font-semibold text-white whitespace-nowrap">Luxe<span class="text-blue-400">Clean</span></span>
         </a>
         <button id="mobile-menu-close" class="text-slate-400 hover:text-white p-2">✕</button>
       </div>
       
       <nav class="flex flex-col space-y-3 mt-6 text-base font-medium text-slate-200">
         <div class="space-y-1 pb-2 border-b border-slate-800">
-          <span class="text-xs uppercase font-bold text-blue-400 tracking-wider">Home Options</span>
+          <span class="text-xs uppercase font-semibold text-blue-400 tracking-wider">Home Options</span>
           <a href="../index.html" class="block pl-3 text-slate-300 hover:text-white text-sm">Home One — Modern</a>
-          <a href="index2.html" class="block pl-3 text-blue-400 font-bold text-sm">Home Two — Classic</a>
+          <a href="index2.html" class="block pl-3 text-blue-400 font-semibold text-sm">Home Two — Classic</a>
         </div>
         <a href="about.html">About Us</a>
         <a href="services.html">Services</a>
         <a href="pricing.html">View Pricing</a>
         <a href="how-it-works.html">How It Works</a>
         <a href="coverage.html">Coverage Area</a>
-        <a href="dashboard.html" class="font-bold text-cyan-400">Dashboard</a>
-        <a href="login.html" class="font-bold text-blue-400">Login</a>
+        <a href="dashboard.html" class="font-semibold text-cyan-400">Dashboard</a>
+        <a href="login.html" class="font-semibold text-blue-400">Login</a>
       </nav>
     </div>
 
     <div class="space-y-3 pt-4 border-t border-slate-800">
       <div class="flex items-center justify-between">
-        <button class="theme-toggle-btn p-2 rounded-xl bg-slate-800 text-slate-100 border border-slate-700 transition flex items-center justify-center shrink-0" title="Toggle Theme" aria-label="Toggle Theme">
+        <button class="theme-toggle-btn h-10 w-10 p-0 rounded-xl bg-slate-800 text-slate-100 border border-slate-700 transition flex items-center justify-center shrink-0" title="Toggle Theme" aria-label="Toggle Theme">
           <svg class="icon-moon w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
           <svg class="icon-sun w-5 h-5 text-amber-400 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
         </button>
-        <button class="rtl-toggle-btn px-4 py-2 rounded-xl bg-blue-900/60 text-blue-200 text-xs font-bold flex items-center space-x-2">
-          <span>🌐</span>
+        <button class="rtl-toggle-btn h-10 px-4 rounded-xl bg-blue-900/60 text-blue-200 text-xs font-semibold flex items-center space-x-2 border border-blue-800">
+          <svg class="w-4 h-4 text-blue-300 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 6H5m14 6H9m10 6H5M9 9l-3 3 3 3"></path>
+          </svg>
           <span class="rtl-label">RTL</span>
         </button>
       </div>
-      <a href="login.html" class="w-full inline-block text-center py-3 rounded-xl bg-blue-600 text-white font-bold shadow-lg">Book a Pickup</a>
+      <a href="dashboard.html#book-pickup" class="w-full inline-block text-center py-3 rounded-xl bg-blue-600 text-white font-semibold shadow-lg">Book a Pickup</a>
     </div>
   </div>
 
@@ -158,25 +171,25 @@
   <section class="relative min-h-[620px] flex items-center justify-center bg-cover bg-center py-24 text-white" style="background-image: linear-gradient(to right, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.70)), url('../assets/images/index2/hero_laundry.jpg');">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
       
-      <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-blue-600/30 text-cyan-300 border border-cyan-400/40 text-xs font-bold uppercase tracking-widest backdrop-blur-md">
+      <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-blue-600/30 text-cyan-300 border border-cyan-400/40 text-xs font-semibold uppercase tracking-widest backdrop-blur-md">
         <span>Classic Luxury Garment Care</span>
       </div>
 
-      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight font-heading leading-tight">
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-semibold tracking-tight font-heading leading-tight">
         The Art of Caring for <br>
         <span class="text-gradient">What You Wear</span>
       </h1>
 
-      <h3 class="text-xl sm:text-2xl font-bold text-blue-200 font-heading">
+      <h3 class="text-xl sm:text-2xl font-semibold text-blue-200 font-heading">
         Exceptional laundry and dry-cleaning, delivered to your doorstep.
       </h3>
 
-      <p class="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
+      <p class="text-base sm:text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed font-normal">
         For everyday essentials and treasured garments alike, our experienced care team combines proven cleaning techniques, refined finishing, and modern convenience to keep your wardrobe looking its finest.
       </p>
 
       <!-- Bullet Strip -->
-      <div class="flex flex-wrap justify-center items-center gap-6 pt-2 text-xs sm:text-sm font-bold text-slate-200">
+      <div class="flex flex-wrap justify-center items-center gap-6 pt-2 text-xs sm:text-sm font-semibold text-slate-200">
         <span class="flex items-center"><span class="w-2 h-2 rounded-full bg-cyan-400 mr-2"></span> Premium Garment Care</span>
         <span class="flex items-center"><span class="w-2 h-2 rounded-full bg-blue-400 mr-2"></span> Doorstep Collection</span>
         <span class="flex items-center"><span class="w-2 h-2 rounded-full bg-emerald-400 mr-2"></span> Reliable Delivery</span>
@@ -184,10 +197,10 @@
 
       <!-- Hero Actions -->
       <div class="flex flex-wrap justify-center gap-4 pt-4">
-        <a href="login.html" class="px-8 py-4 rounded-xl bg-accent-gradient text-white font-bold text-base shadow-2xl hover:shadow-blue-500/50 transition transform hover:-translate-y-0.5">
+        <a href="dashboard.html#book-pickup" class="px-8 py-4 rounded-xl bg-accent-gradient text-white font-semibold text-base shadow-2xl hover:shadow-blue-500/50 transition transform hover:-translate-y-0.5">
           Book a Pickup
         </a>
-        <a href="services.html" class="px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-base border border-white/30 backdrop-blur-md transition">
+        <a href="services.html" class="px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-base border border-white/30 backdrop-blur-md transition">
           Discover Our Services
         </a>
       </div>
@@ -201,8 +214,8 @@
   <!-- 02. INTRODUCTION — OUR PHILOSOPHY -->
   <section class="py-20 bg-white dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-      <span class="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">Our Philosophy</span>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading">A Better Standard of Clean</h2>
+      <span class="text-xs font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">Our Philosophy</span>
+      <h2 class="text-3xl sm:text-4xl font-semibold text-slate-900 dark:text-white font-heading">A Better Standard of Clean</h2>
       <p class="text-base text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
         Laundry is more than simply washing clothes. It is about understanding fabrics, preserving delicate finishes, removing stubborn stains, and returning every garment with the care it deserves.
       </p>
@@ -211,11 +224,11 @@
       </p>
       
       <div class="pt-4 space-y-4">
-        <h4 class="text-xl font-bold text-slate-900 dark:text-white font-heading italic text-gradient">
+        <h4 class="text-xl font-semibold text-slate-900 dark:text-white font-heading italic text-gradient">
           “Cleaned With Care. Finished With Precision.”
         </h4>
         <div>
-          <a href="about.html" class="inline-block px-6 py-2.5 rounded-xl bg-slate-900 text-white dark:bg-blue-600 hover:bg-blue-700 font-bold text-xs shadow-md transition">
+          <a href="about.html" class="inline-block px-6 py-2.5 rounded-xl bg-slate-900 text-white dark:bg-blue-600 hover:bg-blue-700 font-semibold text-xs shadow-md transition">
             Our Story →
           </a>
         </div>
@@ -228,8 +241,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-2xl mx-auto mb-16 space-y-2">
-        <span class="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">Timeless Care</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading">Our Services</h2>
+        <span class="text-xs font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">Timeless Care</span>
+        <h2 class="text-3xl sm:text-4xl font-semibold text-slate-900 dark:text-white font-heading">Our Services</h2>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -239,14 +252,20 @@
           <div>
             <!-- Professional SVG Icon -->
             <div class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-950 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4">
-              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L5.6 15.17a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <rect x="3" y="3" width="18" height="18" rx="4" stroke-width="2"></rect>
+                <circle cx="12" cy="13" r="4" stroke-width="2"></circle>
+                <path stroke-linecap="round" stroke-width="2" d="M9.5 13c1-.8 2-.8 3 0s2 .8 3 0"></path>
+                <circle cx="7" cy="7" r="1" fill="currentColor"></circle>
+                <circle cx="10" cy="7" r="1" fill="currentColor"></circle>
+              </svg>
             </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white font-heading">Wash & Fold</h3>
+            <h3 class="text-xl font-semibold text-slate-900 dark:text-white font-heading">Wash & Fold</h3>
             <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mt-2">
               Thoughtfully cleaned, dried, folded, and prepared for effortless everyday wear.
             </p>
           </div>
-          <a href="pricing.html" class="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline">Learn Rates →</a>
+          <a href="pricing.html" class="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline">Learn Rates →</a>
         </div>
 
         <!-- Service 2 -->
@@ -256,12 +275,12 @@
             <div class="w-12 h-12 rounded-2xl bg-cyan-100 dark:bg-cyan-950 text-cyan-600 dark:text-cyan-400 flex items-center justify-center mb-4">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
             </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white font-heading">Dry Cleaning</h3>
+            <h3 class="text-xl font-semibold text-slate-900 dark:text-white font-heading">Dry Cleaning</h3>
             <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mt-2">
               Professional care for suits, dresses, coats, formalwear, and garments requiring specialized treatment.
             </p>
           </div>
-          <a href="services.html" class="text-xs font-bold text-cyan-600 dark:text-cyan-400 hover:underline">Learn Rates →</a>
+          <a href="services.html" class="text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:underline">Learn Rates →</a>
         </div>
 
         <!-- Service 3 -->
@@ -271,12 +290,12 @@
             <div class="w-12 h-12 rounded-2xl bg-teal-100 dark:bg-teal-950 text-teal-600 dark:text-teal-400 flex items-center justify-center mb-4">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
             </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white font-heading">Steam Press</h3>
+            <h3 class="text-xl font-semibold text-slate-900 dark:text-white font-heading">Steam Press</h3>
             <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mt-2">
               A refined finishing service that leaves your clothes crisp, smooth, and ready to wear.
             </p>
           </div>
-          <a href="services.html" class="text-xs font-bold text-teal-600 dark:text-teal-400 hover:underline">Learn Rates →</a>
+          <a href="services.html" class="text-xs font-semibold text-teal-600 dark:text-teal-400 hover:underline">Learn Rates →</a>
         </div>
 
         <!-- Service 4 -->
@@ -286,20 +305,20 @@
             <div class="w-12 h-12 rounded-2xl bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mb-4">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
             </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white font-heading">Premium Fabric Care</h3>
+            <h3 class="text-xl font-semibold text-slate-900 dark:text-white font-heading">Premium Fabric Care</h3>
             <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mt-2">
               Delicate treatment for silk, wool, linen, embellished garments, and other specialty fabrics.
             </p>
           </div>
-          <a href="services.html" class="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline">Learn Rates →</a>
+          <a href="services.html" class="text-xs font-semibold text-indigo-600 dark:text-indigo-400 hover:underline">Learn Rates →</a>
         </div>
 
       </div>
 
       <div class="mt-16 text-center space-y-3">
-        <h3 class="text-2xl font-bold text-slate-900 dark:text-white font-heading">Every Garment Has Its Own Story. We Know How to Care for It.</h3>
+        <h3 class="text-2xl font-semibold text-slate-900 dark:text-white font-heading">Every Garment Has Its Own Story. We Know How to Care for It.</h3>
         <div>
-          <a href="services.html" class="inline-block px-8 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-lg transition">
+          <a href="services.html" class="inline-block px-8 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-lg transition">
             View Complete Services
           </a>
         </div>
@@ -313,8 +332,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-2xl mx-auto mb-16 space-y-2">
-        <span class="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">The Care Behind The Clean</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading">From Collection to Perfection</h2>
+        <span class="text-xs font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">The Care Behind The Clean</span>
+        <h2 class="text-3xl sm:text-4xl font-semibold text-slate-900 dark:text-white font-heading">From Collection to Perfection</h2>
         <p class="text-sm text-slate-500 dark:text-slate-400">Every order follows a carefully managed process designed around quality.</p>
       </div>
 
@@ -322,8 +341,8 @@
         
         <!-- 01 -->
         <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-3">
-          <span class="text-3xl font-extrabold text-blue-600 font-heading block">01</span>
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading">Collection</h3>
+          <span class="text-3xl font-semibold text-blue-600 font-heading block">01</span>
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white font-heading">Collection</h3>
           <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
             Your garments are collected safely from your doorstep at your chosen time.
           </p>
@@ -331,8 +350,8 @@
 
         <!-- 02 -->
         <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-3">
-          <span class="text-3xl font-extrabold text-blue-600 font-heading block">02</span>
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading">Inspection & Sorting</h3>
+          <span class="text-3xl font-semibold text-blue-600 font-heading block">02</span>
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white font-heading">Inspection & Sorting</h3>
           <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
             Each garment is assessed and sorted according to fabric, color, and cleaning requirements.
           </p>
@@ -340,8 +359,8 @@
 
         <!-- 03 -->
         <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-3">
-          <span class="text-3xl font-extrabold text-blue-600 font-heading block">03</span>
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading">Professional Cleaning</h3>
+          <span class="text-3xl font-semibold text-blue-600 font-heading block">03</span>
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white font-heading">Professional Cleaning</h3>
           <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
             Our specialists use the appropriate cleaning method for each garment.
           </p>
@@ -349,8 +368,8 @@
 
         <!-- 04 -->
         <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-3">
-          <span class="text-3xl font-extrabold text-blue-600 font-heading block">04</span>
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading">Finishing</h3>
+          <span class="text-3xl font-semibold text-blue-600 font-heading block">04</span>
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white font-heading">Finishing</h3>
           <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
             Garments are pressed, folded, or finished according to their individual requirements.
           </p>
@@ -358,8 +377,8 @@
 
         <!-- 05 -->
         <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-3">
-          <span class="text-3xl font-extrabold text-blue-600 font-heading block">05</span>
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading">Final Inspection</h3>
+          <span class="text-3xl font-semibold text-blue-600 font-heading block">05</span>
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white font-heading">Final Inspection</h3>
           <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
             Every piece is checked before being carefully prepared for delivery.
           </p>
@@ -367,8 +386,8 @@
 
         <!-- 06 -->
         <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-3">
-          <span class="text-3xl font-extrabold text-blue-600 font-heading block">06</span>
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading">Doorstep Delivery</h3>
+          <span class="text-3xl font-semibold text-blue-600 font-heading block">06</span>
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white font-heading">Doorstep Delivery</h3>
           <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
             Your freshly cared-for garments arrive back at your door, ready for your wardrobe.
           </p>
@@ -383,8 +402,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-2xl mx-auto mb-16 space-y-2">
-        <span class="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">The Difference Is in the Details</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading">Because Every Detail Matters</h2>
+        <span class="text-xs font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">The Difference Is in the Details</span>
+        <h2 class="text-3xl sm:text-4xl font-semibold text-slate-900 dark:text-white font-heading">Because Every Detail Matters</h2>
         <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
           We don't believe in treating every garment the same. Our process is built around careful handling, fabric awareness, and consistent quality—from the moment your clothes leave your home until they return.
         </p>
@@ -397,7 +416,7 @@
           <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-600 flex items-center justify-center">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
           </div>
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading">Gentle on Fabrics</h3>
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white font-heading">Gentle on Fabrics</h3>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
             Carefully selected cleaning methods help preserve texture, color, and finish.
           </p>
@@ -408,7 +427,7 @@
           <div class="w-10 h-10 rounded-xl bg-cyan-100 dark:bg-cyan-950 text-cyan-600 flex items-center justify-center">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
           </div>
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading">Attention to Detail</h3>
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white font-heading">Attention to Detail</h3>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
             From stain treatment to final pressing, every stage receives professional attention.
           </p>
@@ -419,7 +438,7 @@
           <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 flex items-center justify-center">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
           </div>
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading">Quality Assured</h3>
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white font-heading">Quality Assured</h3>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
             Your garments are inspected before delivery to maintain our standards.
           </p>
@@ -430,7 +449,7 @@
           <div class="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-950 text-indigo-600 flex items-center justify-center">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
           </div>
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading">Delivered Beautifully</h3>
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white font-heading">Delivered Beautifully</h3>
           <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
             Fresh, clean, neatly finished garments delivered straight to your doorstep.
           </p>
@@ -445,8 +464,8 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-2xl mx-auto mb-16 space-y-2">
-        <span class="text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">Simple & Transparent</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white font-heading">Professional Care. Clear Pricing.</h2>
+        <span class="text-xs font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">Simple & Transparent</span>
+        <h2 class="text-3xl sm:text-4xl font-semibold text-slate-900 dark:text-white font-heading">Professional Care. Clear Pricing.</h2>
         <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
           Quality laundry care shouldn't come with complicated pricing. Choose from transparent per-item and per-kg pricing, select the services you need, and schedule your pickup around your routine.
         </p>
@@ -456,36 +475,36 @@
         
         <!-- Rate 1 -->
         <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center space-y-3">
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading">Wash & Fold</h3>
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white font-heading">Wash & Fold</h3>
           <p class="text-xs text-slate-500 dark:text-slate-400">Everyday essentials</p>
-          <div class="text-2xl font-extrabold text-blue-600 font-heading">From $3.50 <span class="text-xs text-slate-500 font-normal">/ kg</span></div>
+          <div class="text-2xl font-semibold text-blue-600 font-heading">From $3.50 <span class="text-xs text-slate-500 font-normal">/ kg</span></div>
         </div>
 
         <!-- Rate 2 -->
         <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center space-y-3">
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading">Dry Cleaning</h3>
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white font-heading">Dry Cleaning</h3>
           <p class="text-xs text-slate-500 dark:text-slate-400">Suits, gowns & delicate</p>
-          <div class="text-2xl font-extrabold text-blue-600 font-heading">From $3.75 <span class="text-xs text-slate-500 font-normal">/ item</span></div>
+          <div class="text-2xl font-semibold text-blue-600 font-heading">From $3.75 <span class="text-xs text-slate-500 font-normal">/ item</span></div>
         </div>
 
         <!-- Rate 3 -->
         <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center space-y-3">
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading">Steam Press</h3>
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white font-heading">Steam Press</h3>
           <p class="text-xs text-slate-500 dark:text-slate-400">Crisp wrinkle-free press</p>
-          <div class="text-2xl font-extrabold text-blue-600 font-heading">From $2.50 <span class="text-xs text-slate-500 font-normal">/ item</span></div>
+          <div class="text-2xl font-semibold text-blue-600 font-heading">From $2.50 <span class="text-xs text-slate-500 font-normal">/ item</span></div>
         </div>
 
         <!-- Rate 4 -->
         <div class="p-6 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center space-y-3">
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white font-heading">Premium Fabric Care</h3>
+          <h3 class="text-lg font-semibold text-slate-900 dark:text-white font-heading">Premium Fabric Care</h3>
           <p class="text-xs text-slate-500 dark:text-slate-400">Silks, wools & embroidery</p>
-          <div class="text-2xl font-extrabold text-blue-600 font-heading">From $8.50 <span class="text-xs text-slate-500 font-normal">/ item</span></div>
+          <div class="text-2xl font-semibold text-blue-600 font-heading">From $8.50 <span class="text-xs text-slate-500 font-normal">/ item</span></div>
         </div>
 
       </div>
 
       <div class="mt-12 text-center space-y-3">
-        <a href="pricing.html" class="inline-block px-8 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-lg transition">
+        <a href="pricing.html" class="inline-block px-8 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm shadow-lg transition">
           View Full Pricing →
         </a>
         <p class="text-xs text-slate-500 italic">No unnecessary surprises. Just straightforward pricing for professional care.</p>
@@ -497,15 +516,15 @@
   <!-- 07. FINAL CTA — CLASSIC CLOSING -->
   <section class="py-20 bg-gradient-to-r from-blue-700 via-blue-800 to-slate-900 text-white text-center">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-      <span class="px-3 py-1 rounded-full text-xs font-bold bg-white/20 text-blue-200 uppercase tracking-widest">Classic Closing</span>
-      <h2 class="text-3xl sm:text-5xl font-extrabold font-heading">Let Us Take Care of the Laundry.</h2>
+      <span class="px-3 py-1 rounded-full text-xs font-semibold bg-white/20 text-blue-200 uppercase tracking-widest">Classic Closing</span>
+      <h2 class="text-3xl sm:text-5xl font-semibold font-heading">Let Us Take Care of the Laundry.</h2>
       <p class="text-base text-blue-100 max-w-2xl mx-auto leading-relaxed">
         You have better things to do than spend your evenings sorting, washing, drying, and ironing. Place your clothes in trusted hands and enjoy the luxury of having them professionally cared for—and returned to your doorstep.
       </p>
 
       <div class="pt-2 space-y-4">
-        <h3 class="text-2xl font-bold font-heading text-cyan-300">Fresh Clothes. Effortless Living.</h3>
-        <a href="login.html" class="inline-block px-10 py-4 rounded-xl bg-white text-slate-950 font-extrabold text-base shadow-2xl hover:bg-slate-100 transition transform hover:scale-105">
+        <h3 class="text-2xl font-semibold font-heading text-cyan-300">Fresh Clothes. Effortless Living.</h3>
+        <a href="dashboard.html#book-pickup" class="inline-block px-10 py-4 rounded-xl bg-white text-slate-950 font-semibold text-base shadow-2xl hover:bg-slate-100 transition transform hover:scale-105">
           Schedule Your Pickup →
         </a>
       </div>
@@ -523,12 +542,19 @@
       <!-- Col 1: Bio -->
       <div class="space-y-4">
         <a href="../index.html" class="flex items-center space-x-3 shrink-0 group">
-          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L5.6 15.17a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+          <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex items-center justify-center text-white shadow-lg shadow-blue-500/30 group-hover:scale-105 transition-transform">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <rect x="3" y="2.5" width="18" height="19" rx="4" stroke-width="2"></rect>
+              <circle cx="12" cy="13" r="4.5" stroke-width="2"></circle>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9.5 13c1-.9 2-.9 3 0s2 .9 3 0"></path>
+              <circle cx="7" cy="6.5" r="1" fill="currentColor"></circle>
+              <circle cx="10" cy="6.5" r="1" fill="currentColor"></circle>
+              <line x1="14.5" y1="6.5" x2="17.5" y2="6.5" stroke-width="2" stroke-linecap="round"></line>
+            </svg>
           </div>
           <div class="text-left">
-            <span class="text-2xl font-extrabold text-white font-heading whitespace-nowrap">Luxe<span class="text-blue-500">Clean</span></span>
-            <span class="block text-[10px] font-bold tracking-wider text-slate-400">“Care Beyond Clean.”</span>
+            <span class="text-2xl font-semibold text-white font-heading whitespace-nowrap">Luxe<span class="text-blue-500">Clean</span></span>
+            <span class="block text-[10px] font-medium tracking-wider text-slate-400">“Care Beyond Clean.”</span>
           </div>
         </a>
         <p class="text-xs text-slate-400 leading-relaxed">
@@ -556,7 +582,7 @@
       </div>
 
       <div>
-        <h4 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Navigation</h4>
+        <h4 class="text-sm font-semibold uppercase tracking-wider text-white mb-4">Navigation</h4>
         <ul class="space-y-2 text-xs">
           <li><a href="../index.html" class="hover:text-white transition">Home One (Modern)</a></li>
           <li><a href="index2.html" class="hover:text-white transition">Home Two (Classic Full-Hero)</a></li>
@@ -565,12 +591,12 @@
           <li><a href="pricing.html" class="hover:text-white transition">View Pricing</a></li>
           <li><a href="how-it-works.html" class="hover:text-white transition">How It Works</a></li>
           <li><a href="coverage.html" class="hover:text-white transition">Coverage Area</a></li>
-          <li><a href="login.html#order-tracker-section" class="hover:text-white transition">Dashboard</a></li>
+          <li><a href="dashboard.html" class="hover:text-white transition">Dashboard</a></li>
         </ul>
       </div>
 
       <div>
-        <h4 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Our Services</h4>
+        <h4 class="text-sm font-semibold uppercase tracking-wider text-white mb-4">Our Services</h4>
         <ul class="space-y-2 text-xs">
           <li><a href="services.html" class="hover:text-white transition">Wash & Fold</a></li>
           <li><a href="services.html" class="hover:text-white transition">Dry Cleaning</a></li>
@@ -580,9 +606,30 @@
       </div>
 
       <div class="space-y-3">
-        <h4 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Customer Portal</h4>
-        <p class="text-xs text-slate-400">Track active orders, schedule pickups, and download past invoices.</p>
-        <a href="login.html" class="inline-block w-full text-center py-2.5 rounded-lg bg-blue-600 text-white font-semibold text-xs hover:bg-blue-700 transition">Login</a>
+        <h4 class="text-sm font-semibold uppercase tracking-wider text-white mb-4">Contact & Support</h4>
+        <div class="space-y-2 text-xs text-slate-400">
+          <p class="flex items-center space-x-2">
+            <span class="text-blue-400 font-bold">Phone:</span>
+            <a href="tel:18005893253" class="hover:text-white transition">+1 (800) 589-3253</a>
+          </p>
+          <p class="flex items-center space-x-2">
+            <span class="text-blue-400 font-bold">Email:</span>
+            <a href="mailto:care@luxeclean.com" class="hover:text-white transition">care@luxeclean.com</a>
+          </p>
+          <p class="flex items-center space-x-2">
+            <span class="text-blue-400 font-bold">HQ:</span>
+            <span>104 Garment District, Suite 400</span>
+          </p>
+          <p class="flex items-center space-x-2">
+            <span class="text-blue-400 font-bold">Hours:</span>
+            <span>Mon–Sat: 7AM–9PM · Sun: 9AM–6PM</span>
+          </p>
+        </div>
+        <div class="pt-2">
+          <a href="how-it-works.html#faq-section" class="inline-flex items-center text-xs font-semibold text-blue-400 hover:text-blue-300">
+            Frequently Asked Questions →
+          </a>
+        </div>
       </div>
 
     </div>

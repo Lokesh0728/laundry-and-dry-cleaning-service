@@ -30,7 +30,18 @@ body {
 
 h1, h2, h3, h4, h5, h6, .font-heading {
   font-family: var(--font-heading);
+  font-weight: 600 !important;
 }
+
+p, .subheading, .font-subheading {
+  font-weight: 450;
+}
+
+/* Standard header action button height */
+.header-action-btn {
+  height: 2.5rem; /* 40px / h-10 */
+}
+
 
 /* Glassmorphism Components */
 .glass-card {
